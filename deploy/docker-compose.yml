@@ -8,8 +8,8 @@ services:
       PORT: 3001
     # Internal-only: bound to loopback. FreeLLMAPI is single-user and must
     # NOT be exposed to the internet. Do not change 127.0.0.1 to 0.0.0.0.
-    ports:
-      - "127.0.0.1:${PORT:-3001}:3001"
+    expose:
+      - "3001"
     volumes:
       - freellmapi-data:/app/server/data
     restart: unless-stopped
